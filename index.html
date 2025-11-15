@@ -12,147 +12,232 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            overflow: hidden;
         }
 
         .container {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            max-width: 800px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+            padding: 0;
+            max-width: 1400px;
             width: 100%;
+            height: 95vh;
+            max-height: 900px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+            flex-shrink: 0;
         }
 
         h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 2em;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 0.9em;
+            font-size: 0.85em;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            gap: 15px;
+            padding: 15px;
+            flex: 1;
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        .left-panel, .center-panel, .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .left-panel::-webkit-scrollbar, .center-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .left-panel::-webkit-scrollbar-thumb, .center-panel::-webkit-scrollbar-thumb, .right-panel::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid #e9ecef;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .stm32-board {
-            background: #2c3e50;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-radius: 12px;
+            padding: 18px;
             color: white;
-            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .board-label {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 0.8em;
-            color: #95a5a6;
+            text-align: right;
+            font-size: 0.7em;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 12px;
         }
 
         .pin-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .pin {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 14px;
             border-radius: 10px;
-            border-left: 4px solid #3498db;
+            border-left: 3px solid #3498db;
+            backdrop-filter: blur(10px);
         }
 
         .pin-label {
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-weight: 600;
+            margin-bottom: 6px;
             color: #3498db;
+            font-size: 0.85em;
         }
 
         .pin-value {
             font-size: 1.2em;
             font-family: 'Courier New', monospace;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
 
-        .control-panel {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
+        .pin-desc {
+            font-size: 0.75em;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .control-group {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .control-label {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 10px;
             font-weight: 600;
-            color: #333;
+            color: #2c3e50;
+            font-size: 0.9em;
         }
 
         .slider-container {
             position: relative;
+            margin-bottom: 10px;
         }
 
         input[type="range"] {
             width: 100%;
             height: 10px;
             border-radius: 5px;
-            background: #e0e0e0;
+            background: linear-gradient(90deg, #e0e0e0 0%, #d0d0d0 100%);
             outline: none;
             -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
         }
 
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 25px;
-            height: 25px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
-            background: #3498db;
+            background: linear-gradient(135deg, #3498db, #2980b9);
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 8px rgba(52, 152, 219, 0.4);
+            transition: transform 0.2s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
         }
 
         input[type="range"]::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
-            background: #3498db;
+            background: linear-gradient(135deg, #3498db, #2980b9);
             cursor: pointer;
             border: none;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 8px rgba(52, 152, 219, 0.4);
+        }
+
+        .frequency-bar {
+            height: 28px;
+            background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c);
+            border-radius: 14px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .frequency-indicator {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            transition: width 0.3s ease;
+            border-radius: 14px;
         }
 
         .value-display {
             background: white;
             border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .value-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .value-row:last-child {
@@ -162,192 +247,285 @@
         .value-label {
             color: #666;
             font-weight: 500;
+            font-size: 0.85em;
         }
 
         .value-number {
-            font-size: 1.3em;
-            font-weight: bold;
+            font-size: 1.2em;
+            font-weight: 700;
             color: #2c3e50;
             font-family: 'Courier New', monospace;
         }
 
         .button-group {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 12px;
         }
 
         button {
             flex: 1;
-            padding: 15px;
+            padding: 12px;
             border: none;
             border-radius: 10px;
-            font-size: 1em;
+            font-size: 0.9em;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
         }
 
         .btn-start {
-            background: #27ae60;
+            background: linear-gradient(135deg, #27ae60, #229954);
             color: white;
         }
 
-        .btn-start:hover {
-            background: #229954;
+        .btn-start:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
         }
 
         .btn-stop {
-            background: #e74c3c;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: white;
         }
 
-        .btn-stop:hover {
-            background: #c0392b;
+        .btn-stop:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
         }
 
         .btn-start:disabled,
         .btn-stop:disabled {
-            opacity: 0.5;
+            opacity: 0.6;
             cursor: not-allowed;
             transform: none;
         }
 
         .status {
             text-align: center;
-            padding: 15px;
+            padding: 12px;
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: 12px;
             font-weight: 600;
+            font-size: 0.85em;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         .status-active {
-            background: #d4edda;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
             color: #155724;
+            border: 1px solid #c3e6cb;
         }
 
         .status-inactive {
-            background: #f8d7da;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
             color: #721c24;
+            border: 1px solid #f5c6cb;
         }
 
         .waveform-display {
-            background: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            height: 150px;
+            padding: 15px;
+            height: 100%;
+            min-height: 200px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         canvas {
             width: 100%;
             height: 100%;
+            border-radius: 6px;
         }
 
-        .frequency-bar {
-            height: 30px;
-            background: linear-gradient(90deg, #3498db, #9b59b6);
-            border-radius: 15px;
-            margin-top: 10px;
-            position: relative;
-            overflow: hidden;
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 12px;
         }
 
-        .frequency-indicator {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            transition: width 0.3s ease;
+        .info-card {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
+        .info-card-label {
+            font-size: 0.7em;
+            color: #666;
+            margin-bottom: 4px;
+        }
 
-            .pin-container {
+        .info-card-value {
+            font-size: 1em;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
                 grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+            
+            .container {
+                height: auto;
+                max-height: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                height: auto;
+                max-height: none;
+            }
+            
+            h1 {
+                font-size: 1.5em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌡️ STM32 Temperature-to-Sound Converter</h1>
-        <p class="subtitle">Web Simulation - ADC + DAC + Timer Implementation</p>
-
-        <div class="stm32-board">
-            <div class="board-label">STM32F103C8</div>
-            <h3 style="margin-bottom: 15px;">📌 Pin Configuration</h3>
-            <div class="pin-container">
-                <div class="pin">
-                    <div class="pin-label">PA0 (ADC1_IN0)</div>
-                    <div class="pin-value" id="adc-value">ADC: 0</div>
-                    <div style="font-size: 0.8em; color: #95a5a6; margin-top: 5px;">Temperature Sensor Input</div>
-                </div>
-                <div class="pin">
-                    <div class="pin-label">PA5 (DAC1_OUT1)</div>
-                    <div class="pin-value" id="dac-value">Frequency: 200 Hz</div>
-                    <div style="font-size: 0.8em; color: #95a5a6; margin-top: 5px;">Audio Output</div>
-                </div>
-            </div>
+        <div class="header">
+            <h1>🌡️ STM32 Temperature-to-Sound Converter</h1>
+            <p class="subtitle">Web Simulation - ADC + DAC + Timer Implementation</p>
         </div>
 
-        <div class="control-panel">
-            <h3 style="margin-bottom: 20px; color: #333;">🎛️ Control Panel</h3>
-            
-            <div class="control-group">
-                <div class="control-label">
-                    <span>Temperature Sensor (ADC Input)</span>
-                    <span id="temp-percent">0%</span>
+        <div class="main-content">
+            <!-- Left Panel: Pin Configuration -->
+            <div class="left-panel">
+                <div class="section">
+                    <div class="section-title">📌 Pin Configuration</div>
+                    <div class="stm32-board">
+                        <div class="board-label">STM32F103C8</div>
+                        <div class="pin-container">
+                            <div class="pin">
+                                <div class="pin-label">PA0 (ADC1_IN0)</div>
+                                <div class="pin-value" id="adc-value">ADC: 0</div>
+                                <div class="pin-desc">Temperature Sensor</div>
+                            </div>
+                            <div class="pin">
+                                <div class="pin-label">PA5 (DAC1_OUT1)</div>
+                                <div class="pin-value" id="dac-value">200 Hz</div>
+                                <div class="pin-desc">Audio Output</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="slider-container">
-                    <input type="range" id="temperature-slider" min="0" max="4095" value="0" step="1">
+
+                <div class="section">
+                    <div class="section-title">⏱️ Timer (TIM2) Status</div>
+                    <div class="stm32-board" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%);">
+                        <div class="board-label" style="color: rgba(255,255,255,0.7);">TIM2 Active</div>
+                        <div class="pin-container">
+                            <div class="pin" style="background: rgba(255,255,255,0.2); border-left-color: #fff;">
+                                <div class="pin-label" style="color: #fff;">Timer Clock</div>
+                                <div class="pin-value" id="timer-clock">84 MHz</div>
+                                <div class="pin-desc">System Clock</div>
+                            </div>
+                            <div class="pin" style="background: rgba(255,255,255,0.2); border-left-color: #fff;">
+                                <div class="pin-label" style="color: #fff;">ARR Value</div>
+                                <div class="pin-value" id="timer-arr">0</div>
+                                <div class="pin-desc">Auto-Reload Reg</div>
+                            </div>
+                            <div class="pin" style="background: rgba(255,255,255,0.2); border-left-color: #fff;">
+                                <div class="pin-label" style="color: #fff;">Prescaler</div>
+                                <div class="pin-value">1:1</div>
+                                <div class="pin-desc">PSC = 0</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="frequency-bar">
-                    <div class="frequency-indicator" id="freq-indicator" style="width: 0%"></div>
+
+                <div class="section">
+                    <div class="section-title">📊 Information</div>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="info-card-label">Min Frequency</div>
+                            <div class="info-card-value">200 Hz</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-card-label">Max Frequency</div>
+                            <div class="info-card-value">2000 Hz</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="value-display">
-                <div class="value-row">
-                    <span class="value-label">ADC Value:</span>
-                    <span class="value-number" id="adc-display">0</span>
-                </div>
-                <div class="value-row">
-                    <span class="value-label">Temperature (simulated):</span>
-                    <span class="value-number" id="temp-display">0°C</span>
-                </div>
-                <div class="value-row">
-                    <span class="value-label">Output Frequency:</span>
-                    <span class="value-number" id="freq-display">200 Hz</span>
-                </div>
-                <div class="value-row">
-                    <span class="value-label">Note (Musical):</span>
-                    <span class="value-number" id="note-display">-</span>
+            <!-- Center Panel: Control Panel -->
+            <div class="center-panel">
+                <div class="section">
+                    <div class="section-title">🎛️ Control Panel</div>
+                    
+                    <div class="control-group">
+                        <div class="control-label">
+                            <span>Temperature Sensor (ADC)</span>
+                            <span id="temp-percent" style="color: #3498db; font-size: 1em;">0%</span>
+                        </div>
+                        <div class="slider-container">
+                            <input type="range" id="temperature-slider" min="0" max="4095" value="0" step="1">
+                        </div>
+                        <div class="frequency-bar">
+                            <div class="frequency-indicator" id="freq-indicator" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="value-display">
+                        <div class="value-row">
+                            <span class="value-label">ADC Value:</span>
+                            <span class="value-number" id="adc-display">0</span>
+                        </div>
+                        <div class="value-row">
+                            <span class="value-label">Temperature:</span>
+                            <span class="value-number" id="temp-display">0°C</span>
+                        </div>
+                        <div class="value-row">
+                            <span class="value-label">Frequency:</span>
+                            <span class="value-number" id="freq-display">200 Hz</span>
+                        </div>
+                        <div class="value-row">
+                            <span class="value-label">Musical Note:</span>
+                            <span class="value-number" id="note-display">-</span>
+                        </div>
+                        <div class="value-row" style="border-top: 2px solid #3498db; margin-top: 8px; padding-top: 12px;">
+                            <span class="value-label" style="color: #27ae60; font-weight: 600;">⏱️ Timer (TIM2) ARR:</span>
+                            <span class="value-number" id="timer-arr-display" style="color: #27ae60;">0</span>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn-start" id="start-btn" onclick="startAudio()">▶ Start</button>
+                        <button class="btn-stop" id="stop-btn" onclick="stopAudio()" disabled>⏹ Stop</button>
+                    </div>
+
+                    <div class="status status-inactive" id="status">
+                        ⏸ Audio Stopped
+                    </div>
                 </div>
             </div>
 
-            <div class="button-group">
-                <button class="btn-start" id="start-btn" onclick="startAudio()">▶ Start Audio</button>
-                <button class="btn-stop" id="stop-btn" onclick="stopAudio()" disabled>⏹ Stop Audio</button>
+            <!-- Right Panel: Waveform -->
+            <div class="right-panel">
+                <div class="section" style="flex: 1; display: flex; flex-direction: column; min-height: 0;">
+                    <div class="section-title">📈 Waveform Visualization</div>
+                    <div class="waveform-display">
+                        <canvas id="waveform-canvas"></canvas>
+                    </div>
+                </div>
             </div>
-
-            <div class="status status-inactive" id="status">
-                ⏸ Audio Stopped
-            </div>
-        </div>
-
-        <div class="waveform-display">
-            <canvas id="waveform-canvas"></canvas>
         </div>
     </div>
 
@@ -360,7 +538,6 @@
         let currentFrequency = 200;
         let waveformCanvas = null;
         let waveformCtx = null;
-        let animationFrame = null;
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
@@ -368,8 +545,28 @@
             waveformCtx = waveformCanvas.getContext('2d');
             
             // Set canvas size
-            waveformCanvas.width = waveformCanvas.offsetWidth;
-            waveformCanvas.height = waveformCanvas.offsetHeight;
+            function resizeCanvas() {
+                if (!waveformCanvas) return;
+                const container = waveformCanvas.parentElement;
+                if (container) {
+                    const rect = container.getBoundingClientRect();
+                    waveformCanvas.width = rect.width - 30;
+                    waveformCanvas.height = rect.height - 30;
+                    // Redraw after resize
+                    setTimeout(() => drawWaveform(currentFrequency), 100);
+                }
+            }
+            
+            // Initial resize
+            setTimeout(resizeCanvas, 100);
+            window.addEventListener('resize', resizeCanvas);
+            
+            // Also redraw periodically to ensure it updates
+            setInterval(() => {
+                if (waveformCanvas && waveformCanvas.width > 0) {
+                    drawWaveform(currentFrequency);
+                }
+            }, 100);
 
             // Setup slider
             const slider = document.getElementById('temperature-slider');
@@ -398,9 +595,17 @@
             const frequency = 200 + Math.round((adcValue * 1800) / 4095);
             currentFrequency = frequency;
             
+            // Calculate Timer values (simulating TIM2_Init)
+            const timerClock = 84000000; // 84 MHz
+            const timerARR = Math.round((timerClock / frequency) - 1);
+            
             // Update frequency displays
-            document.getElementById('dac-value').textContent = `Frequency: ${frequency} Hz`;
+            document.getElementById('dac-value').textContent = `${frequency} Hz`;
             document.getElementById('freq-display').textContent = `${frequency} Hz`;
+            
+            // Update Timer displays
+            document.getElementById('timer-arr').textContent = timerARR.toLocaleString();
+            document.getElementById('timer-arr-display').textContent = timerARR.toLocaleString();
             
             // Update frequency indicator bar
             const freqPercent = ((frequency - 200) / 1800) * 100;
@@ -483,10 +688,12 @@
 
         // Draw waveform
         function drawWaveform(frequency) {
-            if (!waveformCtx) return;
+            if (!waveformCtx || !waveformCanvas) return;
             
             const width = waveformCanvas.width;
             const height = waveformCanvas.height;
+            
+            if (width === 0 || height === 0) return;
             
             // Clear canvas
             waveformCtx.fillStyle = '#2c3e50';
@@ -503,15 +710,25 @@
                 waveformCtx.stroke();
             }
             
+            // Calculate cycles based on frequency (higher frequency = more cycles)
+            // Map frequency (200-2000 Hz) to cycles (2-10)
+            const minFreq = 200;
+            const maxFreq = 2000;
+            const minCycles = 2;
+            const maxCycles = 10;
+            const cycles = minCycles + ((frequency - minFreq) / (maxFreq - minFreq)) * (maxCycles - minCycles);
+            
             // Draw sine wave
             waveformCtx.strokeStyle = '#3498db';
-            waveformCtx.lineWidth = 2;
+            waveformCtx.lineWidth = 2.5;
+            waveformCtx.shadowBlur = 10;
+            waveformCtx.shadowColor = 'rgba(52, 152, 219, 0.6)';
             waveformCtx.beginPath();
             
             const centerY = height / 2;
-            const amplitude = height * 0.4;
-            const cycles = 3; // Number of cycles to display
+            const amplitude = height * 0.35;
             
+            // Draw smooth sine wave
             for (let x = 0; x < width; x++) {
                 const t = (x / width) * cycles * 2 * Math.PI;
                 const y = centerY + amplitude * Math.sin(t);
@@ -524,11 +741,29 @@
             }
             
             waveformCtx.stroke();
+            waveformCtx.shadowBlur = 0;
             
-            // Draw frequency label
+            // Draw center line
+            waveformCtx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+            waveformCtx.lineWidth = 1;
+            waveformCtx.beginPath();
+            waveformCtx.moveTo(0, centerY);
+            waveformCtx.lineTo(width, centerY);
+            waveformCtx.stroke();
+            
+            // Draw frequency label with background
+            waveformCtx.fillStyle = 'rgba(44, 62, 80, 0.8)';
+            waveformCtx.fillRect(8, 8, 100, 24);
             waveformCtx.fillStyle = '#ecf0f1';
-            waveformCtx.font = '14px monospace';
-            waveformCtx.fillText(`${frequency} Hz`, 10, 20);
+            waveformCtx.font = 'bold 13px monospace';
+            waveformCtx.fillText(`${frequency} Hz`, 12, 24);
+            
+            // Draw cycles info
+            waveformCtx.fillStyle = 'rgba(44, 62, 80, 0.6)';
+            waveformCtx.fillRect(8, height - 28, 80, 20);
+            waveformCtx.fillStyle = '#95a5a6';
+            waveformCtx.font = '11px monospace';
+            waveformCtx.fillText(`${cycles.toFixed(1)} cycles`, 12, height - 12);
         }
 
         // Cleanup on page unload
@@ -541,4 +776,3 @@
     </script>
 </body>
 </html>
-
