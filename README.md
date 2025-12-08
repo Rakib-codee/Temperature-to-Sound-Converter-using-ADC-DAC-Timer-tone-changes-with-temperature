@@ -233,7 +233,7 @@ The web simulation works best in:
 
 ## Author
 
-Created for Embedded Systems course final project.
+Md Mahfujur Rahman Rakib
 
 ## License
 
